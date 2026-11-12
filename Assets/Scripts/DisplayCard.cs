@@ -16,6 +16,8 @@ public class DisplayCard : MonoBehaviour
     public TextMeshProUGUI cardNameText;
     public TextMeshProUGUI cardDescriptionText;
 
+    public bool CardBackside;
+    public static bool StaticHardBack;
     void Start()
     {
         // Ensure the database has the requested index before fetching
@@ -35,5 +37,10 @@ public class DisplayCard : MonoBehaviour
         {
             Debug.LogError("DisplayId " + displayId + " is out of range for CardDatabase!");
         }
+    }
+    void Update()
+    {
+        // Update the UI elements every frame (if needed)
+        StaticHardBack = CardBackside;
     }
 }
